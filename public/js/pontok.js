@@ -11,11 +11,13 @@ onValue(osztalyokRef, (snapshot) => {
   const data = snapshot.val();
 
   if (data) {
+    const sortedEntries = Object.entries(data).sort((a, b) => b[1].pont - a[1].pont);
+
     const labels = [];
     const pontok = [];
 
-    Object.entries(data).forEach(([key, value]) => {
-      labels.push(key);
+    sortedEntries.forEach(([key, value]) => {
+      labels.push(value.nev);
       pontok.push(value.pont);
     });
 
