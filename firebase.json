@@ -8,6 +8,10 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      { "source": "pages/pontok.html", "destination": "index.html" },
+      { "source": "pages/roulette.html", "destination": "index.html" }
     ]
   }
 }
