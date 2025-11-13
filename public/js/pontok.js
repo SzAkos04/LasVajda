@@ -11,11 +11,12 @@ onValue(osztalyokRef, (snapshot) => {
   const data = snapshot.val();
 
   if (data) {
-    const sortedEntries = Object.entries(data).sort(([keyA, a], [keyB, b]) => {
-      if (b.pont !== a.pont) return b.pont - a.pont;
+    const sortedEntries = Object.entries(data).sort(([_, a], [__, b]) => {
+      if ((b.pont1 + b.pont2) !== (a.pont1 + a.pont2)) return (b.pont1 + b.pont2) - (a.pont1 + a.pont2);
+
 
       // If pont is 0, sort naturally by nev
-      if (a.pont === 0 && b.pont === 0) {
+      if (a.pont1 + a.pont2 === 0 && b.pont1 + b.pont2 === 0) {
         return a.nev.localeCompare(b.nev, undefined, { numeric: true, sensitivity: 'base' });
       }
 
@@ -26,7 +27,7 @@ onValue(osztalyokRef, (snapshot) => {
     const pontok1 = [];
     const pontok2 = [];
 
-    sortedEntries.forEach(([key, value]) => {
+    sortedEntries.forEach(([_, value]) => {
       labels.push(value.nev);
       pontok1.push(value.pont1);
       pontok2.push(value.pont2);
@@ -101,6 +102,6 @@ onValue(osztalyokRef, (snapshot) => {
     })
 
   } else {
-    console.log("No data found.");
+    window.alert("Adatok nem találhatóak.");
   }
 });
