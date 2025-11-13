@@ -9,9 +9,9 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      { "source": "pages/pontok.html", "destination": "index.html" },
-      { "source": "pages/roulette.html", "destination": "index.html" }
+    "redirects": [
+      { "source": "/pages/pontok.html", "destination": "/", "type": 301 },
+      { "source": "/pages/roulette.html", "destination": "/", "type": 301 }
     ]
   }
 }
