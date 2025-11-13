@@ -23,17 +23,14 @@ onValue(osztalyokRef, (snapshot) => {
     });
 
     const labels = [];
-    const palack_pontok = [];
-    const pontok = [];
+    const pontok1 = [];
+    const pontok2 = [];
 
     sortedEntries.forEach(([key, value]) => {
       labels.push(value.nev);
-      palack_pontok.push(value.palack_pont);
-      pontok.push(value.pont);
+      pontok1.push(value.pont1);
+      pontok2.push(value.pont2);
     });
-
-    console.log(labels);
-    console.log(pontok);
 
     let delayed;
 
@@ -43,15 +40,15 @@ onValue(osztalyokRef, (snapshot) => {
         labels: labels,
         datasets: [
           {
-            label: "Pontok",
-            data: pontok,
+            label: "Pontok 1",
+            data: pontok1,
             borderWidth: 2,
             backgroundColor: "rgba(0, 0, 255, 1)",
             borderColor: "rgba(128, 128, 255, 1)"
           },
           {
-            label: "Palackok",
-            data: palack_pontok,
+            label: "Pontok 2",
+            data: pontok2,
             borderWidth: 2,
             backgroundColor: "rgba(255, 0, 0, 1)",
             borderColor: "rgba(255, 128, 128, 1)"
