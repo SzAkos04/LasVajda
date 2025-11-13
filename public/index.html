@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Las Vajda</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
@@ -13,24 +14,26 @@
 </head>
 
 <body>
-    <div class="dropdown">
-        <button class="dropdown-button" onclick="toggleDropdown()">Menu</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">Kezdőlap</a>
-            <a href="pages/hirek.html">Hírek</a>
-            <a href="pages/palackgyujtes.html">Palackgyűjtés</a>
-            <a href="pages/pontok.html" class="disabled">Pontok</a>
-            <a href="pages/roulette.html" class="disabled">Roulette</a>
-        </div>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <ul>
+            <li><a href="#">Kezdőlap</a></li>
+            <li><a href="pages/hirek.html">Hírek</a></li>
+            <li><a href="pages/palackgyujtes.html">Palackgyűjtés</a></li>
+            <li><a href="pages/pontok.html" class="disabled">Pontok</a></li>
+            <li><a href="pages/roulette.html" class="disabled">Roulette</a></li>
+        </ul>
     </div>
 
     <div class="center-box">
         <div class="overlay-text">
-            <p>Las Vajda</p>
+
+            Las Vajda
+
         </div>
     </div>
-
-    <script src="js/dropdown.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore-compat.js"></script>

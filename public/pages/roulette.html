@@ -5,26 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Las Vajda - Roulette</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/dropdown.css">
+    <link rel="stylesheet" href="../css/menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
 </head>
 <body>
-    <div class="dropdown">
-        <button class="dropdown-button" onclick="toggleDropdown()">Menu</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="../index.html">Kezdőlap</a>
-            <a href="hirek.html">Hírek</a>
-            <a href="palackgyujtes.html">Palackgyűjtés</a>
-            <a href="pontok.html" class="disabled">Pontok</a>
-            <a href="#" class="disabled">Roulette</a>
-        </div>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <ul>
+            <li><a href="../index.html">Kezdőlap</a></li>
+            <li><a href="hirek.html">Hírek</a></li>
+            <li><a href="palackgyujtes.html">Palackgyűjtés</a></li>
+            <li><a href="pontok.html" class="disabled">Pontok</a></li>
+            <li><a href="roulette.html" class="disabled">Roulette</a></li>
+        </ul>
     </div>
 
-    Roulette
+    <div class="content">
 
-    <script src="../js/dropdown.js"></script>
+        Roulette
+
+    </div>
 </body>
 </html>
