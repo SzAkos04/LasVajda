@@ -1,14 +1,15 @@
-// FIXME: nem mukszik still
+// js/pontok.js
+import { db } from "./firebase-init.js";
+import { ref, onValue } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 
-const ref = db.ref("osztalyok");
+const osztalyokRef = ref(db, "osztalyok");
 
-// 4. Fetch data
-ref.on("value", (snapshot) => {
+onValue(osztalyokRef, (snapshot) => {
   const data = snapshot.val();
 
   if (data) {
-    Object.keys(data).forEach(key => {
-      console.log(`${key}:`, data[key]);
+    Object.entries(data).forEach(([key, value]) => {
+      console.log(`${key}:`, value);
     });
   } else {
     console.log("No data found.");
