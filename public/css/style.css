@@ -1,3 +1,16 @@
+:root {
+    --gold: #d4af37;
+    --gold-light: #f5d87a;
+    --gold-dark: #8b6914;
+    --crimson: #8b0000;
+    --crimson-bright: #c0392b;
+    --black: #0a0a0a;
+    --black-mid: #111111;
+    --black-card: #141414;
+    --white: #f5f0e8;
+    --white-dim: rgba(245, 240, 232, 0.6);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,24 +18,19 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    display: block;
     background: radial-gradient(circle at top, #111 0%, #000 100%);
-    color: #f5f5f5;
-    font-family: "JetBrains Mono", sans-serif;
+    color: var(--white);
+    font-family: "Inter", sans-serif;
+    padding-top: 80px; /* hely a menugombnak */
 }
 
 .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     text-align: center;
-    width: 100%;
-    color: #f5f5f5;
 }
 
 .center-box {
@@ -53,5 +61,5 @@ body {
     padding: 10px 20px;
     border-radius: 12px;
     backdrop-filter: blur(4px);
-  animation: glow 2.5s infinite alternate;
+    animation: glow 2.5s infinite alternate;
 }
