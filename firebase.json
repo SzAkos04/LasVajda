@@ -16,7 +16,11 @@
       }
     ],
     "redirects": [
-      { "source": "/pages/pontok.html", "destination": "/", "type": 301 }
+      {
+        "source": "/pages/pontok.html",
+        "destination": "/",
+        "type": 301
+      }
     ]
   }
 }
