@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Vajda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Podkova:wght@400..800&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <div class="menu-bg"></div>
+        <ul>
+            <li><a href="#">Kezdőlap</a></li>
+            <li><a href="pages/hirek.html">Hírek</a></li>
+            <li><a href="pages/palackgyujtes.html" class="disabled">Palackgyűjtés</a></li>
+            <li><a href="pages/pontok.html" class="disabled">Pontok</a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+
+        <div class="hero-content">
+            <p class="hero-eyebrow">Győzzön a legjobb</p>
+            <h1 class="hero-title">
+                <span class="las">Las</span>
+                <span class="vajda">Vajda</span>
+            </h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">Keszthelyi Vajda János Gimnázium</p>
+            <a href="#nav" class="hero-cta">
+                <span>Tudj meg többet</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- NAV STRIP -->
+    <nav id="nav" class="nav-strip">
+        <a href="pages/hirek.html">
+            <span class="nav-icon">📰</span>
+            <span>Hírek</span>
+        </a>
+        <a href="https://www.instagram.com/vajdanapok2026/">
+            <span class="nav-icon">🌐</span>
+            <span>Social</span>
+        </a>
+        <a href="pages/palackgyujtes.html" class="disabled">
+            <span>Palackgyűjtés</span>
+        </a>
+        <a href="pages/pontok.html" class="disabled">
+            <span>Pontok</span>
+        </a>
+    </nav>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+        <div class="marquee-track">
+            <div class="marquee-item">Las Vajda</div>
+            <div class="marquee-dot"></div>
+            <div class="marquee-item">Győzzön a legjobb</div>
+            <div class="marquee-dot"></div>
+            <div class="marquee-item">Las Vajda</div>
+            <div class="marquee-dot"></div>
+            <div class="marquee-item">Győzzön a legjobb</div>
+            <div class="marquee-dot"></div>
+            
+            <!-- dupe for smoothness -->
+            <div class="marquee-item">Las Vajda</div>
+            <div class="marquee-dot"></div>
+            <div class="marquee-item">Győzzön a legjobb</div>
+            <div class="marquee-dot"></div>
+            <div class="marquee-item">Las Vajda</div>
+            <div class="marquee-dot"></div>
+            <div class="marquee-item">Győzzön a legjobb</div>
+            <div class="marquee-dot"></div>
+        </div>
+    </div>
+
+    <!-- INFO CARDS -->
+    <section style="background: var(--black); padding: 80px 40px;">
+        <div class="info-section">
+            <div class="info-card">
+                <div class="info-number">01</div>
+                <div class="info-label">Hol</div>
+                <div class="info-value">Csány-Szendrey tornaterem</div>
+            </div>
+            <div class="info-card">
+                <div class="info-number">02</div>
+                <div class="info-label">Mikor</div>
+                <div class="info-value">2026.09.07 - 2026.09.11</div>
+            </div>
+            <div class="info-card">
+                <div class="info-number">03</div>
+                <div class="info-label">Szervezők</div>
+                <div class="info-value">11.A</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Las Vajda</div>
+        <!-- <div class="footer-copy">© 2025 Las Vajda &nbsp;·&nbsp; Minden jog fenntartva</div> -->
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore-compat.js"></script>
+
+</body>
+</html>

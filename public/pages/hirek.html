@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hírek - Las Vajda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Podkova:wght@400..800&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/hirek.css">
+</head>
+<body>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <div class="menu-bg"></div>
+        <ul>
+            <li><a href="/">Kezdőlap</a></li>
+            <li><a href="hirek.html">Hírek</a></li>
+            <li><a href="palackgyujtes.html" class="disabled">Palackgyűjtés</a></li>
+            <li><a href="pontok.html" class="disabled">Pontok</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1 class="section-title animate-fade-up">Friss Hírek</h1>
+        
+        <div id="news-container" class="news-grid animate-fade-up delay-1">
+            <div class="loading">Hírek betöltése...</div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/hirek.js"></script>
+
+</body>
+</html>
