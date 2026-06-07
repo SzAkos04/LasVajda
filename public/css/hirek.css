@@ -111,10 +111,10 @@
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--white-dim);
-    display: -webkit-box;
+    /* display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    overflow: hidden; */
 }
 
 @keyframes fadeUp {

@@ -4,6 +4,14 @@ import { ref, onValue } from "https://www.gstatic.com/firebasejs/12.5.0/firebase
 const newsRef = ref(db, "hirek");
 const container = document.getElementById('news-container');
 
+function parseMarkdown(text) {
+    return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/\\n/g, '<br>')
+        .replace(/\n/g, '<br>');
+}
+
 onValue(newsRef, (snapshot) => {
     const data = snapshot.val();
     container.innerHTML = "";
@@ -37,7 +45,7 @@ onValue(newsRef, (snapshot) => {
 
                     <div class="news-body">
                         <h3 class="news-title">${val.cim}</h3>
-                        <p class="news-text">${val.szoveg}</p>
+                        <p class="news-text">${parseMarkdown(val.szoveg)}</p>
                     </div>
                 </div>
             `;
