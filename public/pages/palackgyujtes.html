@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palackgyűjtés - Las Vajda</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/palackgyujtes.css">
 </head>
 <body>
+
+    <!-- MENU -->
     <input type="checkbox" id="active">
     <label for="active" class="menu-btn"><span></span></label>
     <label for="active" class="close"></label>
@@ -25,11 +27,39 @@
         </ul>
     </div>
 
-    <div class="content">
+    <!-- PAGE CONTENT -->
+    <div class="pg-page">
 
-        Palackgyűjtés
+        <header class="pg-header">
+            <p class="pg-eyebrow">Live · Frissül automatikusan</p>
+            <h1 class="pg-title">Palack<span class="pg-title-accent">gyűjtés</span></h1>
+            <div class="pg-divider"></div>
+            <p class="pg-subtitle">Osztályok előzetes eredménye</p>
+        </header>
+
+        <div class="pg-card">
+            <div class="pg-card-header">
+                <span class="pg-live-dot"></span>
+                <span class="pg-live-label">Élő eredmények</span>
+                <span class="pg-updated" id="lastUpdated">—</span>
+            </div>
+            <div class="pg-chart-wrap">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+        <!-- LEADERBOARD TABLE -->
+        <div class="pg-table-card">
+            <div class="pg-table-title">Rangsor</div>
+            <div id="leaderboard" class="pg-leaderboard">
+                <div class="pg-loading">Adatok betöltése...</div>
+            </div>
+        </div>
 
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../js/palackgyujtes.js"></script>
 
 </body>
 </html>
