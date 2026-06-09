@@ -1,36 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pontok - Las Vajda</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Podkova:wght@400..800&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/pontok.css">
 </head>
 <body>
+
+    <!-- MENU -->
     <input type="checkbox" id="active">
     <label for="active" class="menu-btn"><span></span></label>
     <label for="active" class="close"></label>
     <div class="wrapper">
         <div class="menu-bg"></div>
         <ul>
-            <li><a href="/">Kezdőlap</a></li>
+            <li><a href="../index.html">Kezdőlap</a></li>
             <li><a href="hirek.html">Hírek</a></li>
             <li><a href="palackgyujtes.html">Palackgyűjtés</a></li>
-            <li><a href="pontok.html" class="disabled">Pontok</a></li>
+            <li><a href="#" class="disabled">Pontok</a></li>
         </ul>
     </div>
 
-    <div class="chart-container">
-        <canvas id="myChart"></canvas>
+    <div class="pg-page">
+
+        <header class="pg-header">
+            <p class="pg-eyebrow">Live · Frissül automatikusan</p>
+            <h1 class="pg-title">Pon<span class="pg-title-accent">tok</span></h1>
+            <div class="pg-divider"></div>
+            <p class="pg-subtitle">Osztályok összesített eredménye</p>
+        </header>
+
+        <div class="pg-card">
+            <div class="pg-card-header">
+                <span class="pg-live-dot"></span>
+                <span class="pg-live-label">Élő eredmények</span>
+                <span class="pg-updated" id="lastUpdated">—</span>
+            </div>
+            <div class="pg-chart-wrap">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+        <div class="pg-table-card">
+            <div class="pg-table-title">Rangsor</div>
+            <div id="leaderboard" class="pg-leaderboard">
+                <div class="pg-loading">Adatok betöltése...</div>
+            </div>
+        </div>
+
     </div>
 
-    <script type="module" src="../js/firebase-init.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="../js/pontok.js"></script>
 
