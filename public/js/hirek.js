@@ -1,5 +1,5 @@
 import { db } from "./firebase-init.js";
-import { ref, onValue } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
+import { ref, get } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 
 const newsRef = ref(db, "hirek");
 const container = document.getElementById('news-container');
@@ -12,37 +12,30 @@ function parseMarkdown(text) {
         .replace(/\n/g, '<br>');
 }
 
-onValue(newsRef, (snapshot) => {
+try {
+    const snapshot = await get(newsRef);
     const data = snapshot.val();
     container.innerHTML = "";
 
     if (data) {
-        const entries = Object.entries(data).reverse();
-
-        entries.forEach(([key, val]) => {
+        Object.entries(data).reverse().forEach(([key, val]) => {
             const newsCard = document.createElement('div');
             newsCard.className = 'news-card animate-fade-up';
 
             const imageHtml = val.kepek
-                ? `
-                <div class="news-image-grid">
-                    ${Object.values(val.kepek)
-                        .slice(0, 4)
-                        .map(img => `
-                            <img src="${img}" alt="${val.cim}" class="news-image">
-                        `).join("")}
-                </div>
-                `
+                ? `<div class="news-image-grid">
+                    ${Object.values(val.kepek).slice(0, 4)
+                    .map(img => `<img src="${img}" alt="${val.cim}" class="news-image" loading="lazy">`)
+                    .join("")}
+                   </div>`
                 : "";
 
             newsCard.innerHTML = `
                 ${imageHtml}
-
                 <div class="news-content-padding">
                     <div class="news-header">
                         <span class="news-date">${val.datum}</span>
                     </div>
-
                     <div class="news-body">
                         <h3 class="news-title">${val.cim}</h3>
                         <p class="news-text">${parseMarkdown(val.szoveg)}</p>
@@ -52,5 +45,10 @@ onValue(newsRef, (snapshot) => {
 
             container.appendChild(newsCard);
         });
+    } else {
+        container.innerHTML = '<div class="loading">Nincsenek hírek.</div>';
     }
-});
+} catch (err) {
+    console.error("Hiba a hírek betöltésekor:", err);
+    container.innerHTML = '<div class="loading">Hiba történt a betöltés során.</div>';
+}
