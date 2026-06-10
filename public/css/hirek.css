@@ -117,13 +117,16 @@
     }
 }
 
-.animate-fade-up {
+.news-card {
     opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
+.news-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .loading {
     grid-column: 1 / -1;

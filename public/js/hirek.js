@@ -52,3 +52,15 @@ try {
     console.error("Hiba a hírek betöltésekor:", err);
     container.innerHTML = '<div class="loading">Hiba történt a betöltés során.</div>';
 }
+
+// amikor egy hírcard láthatóvá válik, hozzáadunk egy osztályt, ami elindítja a CSS animációt
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.news-card').forEach(c => observer.observe(c));
