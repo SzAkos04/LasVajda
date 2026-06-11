@@ -1,4 +1,3 @@
-// js/pontok.js
 import { db } from "./firebase-init.js";
 import { ref, onValue } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 import { renderLeaderboard, updateTimestamp } from "./leaderboard.js";
@@ -15,16 +14,22 @@ Chart.defaults.font.size = 11;
 const PALETTE = [
     { bg: 'rgba(212, 175, 55, 0.85)',  border: 'rgba(245, 216, 122, 1)' },
     { bg: 'rgba(139, 0, 0, 0.75)',     border: 'rgba(192, 57, 43, 1)'   },
-    { bg: 'rgba(46, 139, 87, 0.75)',   border: 'rgba(52, 152, 219, 1)'  },
-    { bg: 'rgba(142, 68, 173, 0.75)',  border: 'rgba(155, 89, 182, 1)'  },
-    { bg: 'rgba(211, 84, 0, 0.75)',    border: 'rgba(230, 126, 34, 1)'  }
+    { bg: 'rgba(139, 105, 20, 0.75)',  border: 'rgba(212, 175, 55, 1)'  },
+    { bg: 'rgba(245, 240, 232, 0.75)', border: 'rgba(245, 240, 232, 1)' },
+    { bg: 'rgba(17, 17, 17, 0.75)',    border: 'rgba(245, 216, 122, 1)' }
 ];
 
+const FELADATOK_CONFIG = {
+    "palackgyujtes": {nev: "Palackgyűjtés", max: 75},
+    "elofeladat": {nev: "Előfeladat", max: 50},
+    "foci": {nev: "Foci", max: 75},
+    "vetelkedo": {nev: "Vetélkedő", max: 150},
+    "osztalymusor": {nev: "Osztályműsor", max: 150},
+};
+
 export function getClassTotal(classObj) {
-    if (!classObj.pontok || typeof classObj.pontok !== 'object') return 0;
-    return Object.values(classObj.pontok).reduce((sum, pObj) => {
-        return sum + (pObj?.pont ?? 0);
-    }, 0);
+    if (!classObj.feladatok || typeof classObj.feladatok !== 'object') return 0;
+    return Object.values(classObj.feladatok).reduce((sum, pont) => sum + (pont ?? 0), 0);
 }
 
 function sortEntries(data) {
@@ -90,16 +95,17 @@ function buildChart(labels, datasets) {
     });
 }
 
-function makeChipsHtml(projectKeysWithNames) {
-    return (val) => {
-        const chips = Object.entries(projectKeysWithNames).map(([key, beautifulName], index) => {
-            const pts = val.pontok?.[key]?.pont ?? 0;
-            const { bg, border } = PALETTE[index % PALETTE.length];
-            const colorStyle = `background:${bg.replace('0.85','0.12').replace('0.75','0.12')};border:1px solid ${border};color:rgba(245,240,232,0.8);`;
-            return `<span class="pg-bar-chip" style="${colorStyle}" title="${beautifulName}">${pts}</span>`;
-        }).join('');
-        return `<div class="pg-bars">${chips}</div>`;
-    };
+function makeChipsHtml(val) {
+    const chips = Object.entries(FELADATOK_CONFIG).map(([key, config], index) => {
+        const pts = val.feladatok?.[key] ?? 0; 
+        const { bg, border } = PALETTE[index % PALETTE.length];
+        const colorStyle = `background:${bg.replace('0.85','0.12').replace('0.75','0.12')};border:1px solid ${border};color:rgba(245,240,232,0.8);`;
+        
+        const displayLabel = `${config.nev} (Max: ${config.max})`; 
+        
+        return `<span class="pg-bar-chip" style="${colorStyle}" title="${displayLabel}">${pts} / ${config.max}</span>`;
+    }).join('');
+    return `<div class="pg-bars">${chips}</div>`;
 }
 
 onValue(osztalyokRef, (snapshot) => {
@@ -109,24 +115,14 @@ onValue(osztalyokRef, (snapshot) => {
         return;
     }
 
-    // Collect all project keys → display names
-    const projectKeysWithNames = {};
-    Object.values(data).forEach(classObj => {
-        if (classObj?.pontok && typeof classObj.pontok === 'object') {
-            Object.entries(classObj.pontok).forEach(([key, pObj]) => {
-                if (pObj?.nev) projectKeysWithNames[key] = pObj.nev;
-            });
-        }
-    });
-
     const sorted = sortEntries(data);
     const labels = sorted.map(([, v]) => v.nev ?? '?');
 
-    const datasets = Object.entries(projectKeysWithNames).map(([key, beautifulName], index) => {
+    const datasets = Object.entries(FELADATOK_CONFIG).map(([key, config], index) => {
         const { bg, border } = PALETTE[index % PALETTE.length];
         return {
-            label: beautifulName,
-            data: sorted.map(([, v]) => v.pontok?.[key]?.pont ?? 0),
+            label: config.nev,
+            data: sorted.map(([, v]) => v.feladatok?.[key] ?? 0),
             backgroundColor: bg,
             borderColor: border,
             borderWidth: 1.5,
@@ -138,7 +134,7 @@ onValue(osztalyokRef, (snapshot) => {
     buildChart(labels, datasets);
 
     const maxTotal = getClassTotal(sorted[0]?.[1] ?? {}) || 1;
-    renderLeaderboard(leaderboard, sorted, maxTotal, getClassTotal, makeChipsHtml(projectKeysWithNames));
+    renderLeaderboard(leaderboard, sorted, maxTotal, getClassTotal, makeChipsHtml);
     updateTimestamp(lastUpdated);
 });
 
