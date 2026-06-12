@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="hu">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Keszthelyi Vajda János Gimnázium - Vajda-napok 2026">
-    <meta property="og:title" content="Las Vajda">
+    <meta property="og:title"       content="Las Vajda">
     <meta property="og:description" content="Keszthelyi Vajda János Gimnázium - Vajda-napok 2026">
-    <meta property="og:image" content="https://lasvajda.web.app/images/og-image.png">
-    <meta property="og:image:width" content="1200">
+    <meta property="og:image"       content="https://lasvajda.web.app/images/og-image.png">
+    <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
     <title>Las Vajda</title>
 
-    <link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/images/icons/favicon.svg" />
-    <link rel="shortcut icon" href="/images/icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Las Vajda" />
-    <link rel="manifest" href="/images/icons/site.webmanifest" />
+    <link rel="icon" type="image/png"  href="/images/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/images/icons/favicon.svg">
+    <link rel="shortcut icon"          href="/images/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Las Vajda">
+    <link rel="manifest" href="/images/icons/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Podkova:wght@400..800&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-
 <body>
 
     <input type="checkbox" id="active">
@@ -44,7 +42,6 @@
 
     <section class="hero">
         <div class="hero-bg"></div>
-
         <div class="hero-content">
             <p class="hero-eyebrow">Győzzön a legjobb</p>
             <h1 class="hero-title">
@@ -80,7 +77,7 @@
     </nav>
 
     <div class="marquee-wrap">
-        <div class="marquee-track">
+        <div class="marquee-track" aria-hidden="true">
             <div class="marquee-item">Las Vajda</div>
             <div class="marquee-dot"></div>
             <div class="marquee-item">Győzzön a legjobb</div>
@@ -89,8 +86,7 @@
             <div class="marquee-dot"></div>
             <div class="marquee-item">Győzzön a legjobb</div>
             <div class="marquee-dot"></div>
-            
-            <!-- dupe for smoothness -->
+
             <div class="marquee-item">Las Vajda</div>
             <div class="marquee-dot"></div>
             <div class="marquee-item">Győzzön a legjobb</div>
@@ -102,8 +98,7 @@
         </div>
     </div>
 
-    <!-- INFO CARDS -->
-    <section style="background: var(--black); padding: 80px 40px;">
+    <section class="info-section-wrap">
         <div class="info-section">
             <div class="info-card">
                 <div class="info-number">01</div>
@@ -113,7 +108,7 @@
             <div class="info-card">
                 <div class="info-number">02</div>
                 <div class="info-label">Mikor</div>
-                <div class="info-value">2026.09.07 - 2026.09.11</div>
+                <div class="info-value">2026.09.07 – 2026.09.11</div>
             </div>
             <div class="info-card">
                 <div class="info-number">03</div>
@@ -125,9 +120,7 @@
 
     <footer>
         <div class="footer-logo">Las Vajda</div>
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--white-dim); opacity: 0.5; margin-top: 12px; letter-spacing: 0.1em; text-transform: uppercase;">
-            Created by Szijgyártó Ákos
-        </div>
+        <div class="footer-credit">Created by Szijgyártó Ákos</div>
     </footer>
 
 </body>

@@ -1,16 +1,14 @@
-// js/leaderboard.js
-// Shared leaderboard renderer for pontok.js and palackgyujtes.js
-
 const MEDALS = ['🥇', '🥈', '🥉'];
 
 /**
- * Renders a leaderboard into the given container element.
+ * Render a sorted leaderboard into `container`.
  *
- * @param {HTMLElement} container - The element to render into
- * @param {Array} sorted - Sorted array of [key, classObj] entries
- * @param {number} maxTotal - The highest total (for progress bar width)
- * @param {(classObj: object) => number} getTotal - Function to get total for a class
- * @param {(classObj: object) => string} getChipsHtml - Function to get chips HTML for a class (optional)
+ * @param {HTMLElement} container
+ * @param {Array}       sorted        - Array of [key, classObj] pairs, pre-sorted descending.
+ * @param {number}      maxTotal      - The highest total (for the background-bar percentage).
+ * @param {function}    getTotal      - (classObj) => number
+ * @param {function}    [getChipsHtml] - (classObj) => HTML string for the chips cell.
+ *                                       Defaults to an empty `.pg-bars` div.
  */
 export function renderLeaderboard(container, sorted, maxTotal, getTotal, getChipsHtml = null) {
     if (!sorted.length) {
@@ -19,29 +17,27 @@ export function renderLeaderboard(container, sorted, maxTotal, getTotal, getChip
     }
 
     container.innerHTML = sorted.map(([, val], i) => {
-        const total = getTotal(val);
-        const pct = maxTotal > 0 ? Math.round((total / maxTotal) * 100) : 0;
-        const rank = i + 1;
-        const rankDisplay = rank <= 3
+        const total    = getTotal(val);
+        const pct      = maxTotal > 0 ? Math.round((total / maxTotal) * 100) : 0;
+        const rank     = i + 1;
+        const rankHtml = rank <= 3
             ? `<span class="pg-rank-medal">${MEDALS[i]}</span>`
             : `<span class="pg-rank">${rank}</span>`;
-
         const chipsHtml = getChipsHtml ? getChipsHtml(val) : '<div class="pg-bars"></div>';
 
         return `
-            <div class="pg-row" data-rank="${rank}">
+            <div class="pg-row${getChipsHtml ? ' pg-row--detailed' : ''}" data-rank="${rank}">
                 <div class="pg-row-bar" style="width:${pct}%"></div>
-                ${rankDisplay}
+                ${rankHtml}
                 <div class="pg-name">${val.nev ?? '—'}</div>
                 ${chipsHtml}
                 <div class="pg-total">${total}</div>
-            </div>
-        `;
+            </div>`;
     }).join('');
 }
 
 /**
- * Updates the "last updated" timestamp element.
+ * Write the current HH:MM:SS into an element.
  * @param {HTMLElement} el
  */
 export function updateTimestamp(el) {
