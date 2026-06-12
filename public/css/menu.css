@@ -1,3 +1,14 @@
+html {
+    background: var(--black);
+    /* Safari overscroll fix */
+    overscroll-behavior: none;
+}
+
+body {
+    background: var(--black);
+    overscroll-behavior: none;
+}
+
 .wrapper {
     position: fixed;
     top: 0;

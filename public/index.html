@@ -9,6 +9,7 @@
     <meta property="og:image"       content="https://lasvajda.web.app/images/og-image.png">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
+    <meta name="theme-color" content="#0a0a0a">
     <title>Las Vajda</title>
 
     <link rel="icon" type="image/png"  href="/images/icons/favicon-96x96.png" sizes="96x96">
@@ -122,6 +123,21 @@
         <div class="footer-logo">Las Vajda</div>
         <div class="footer-credit">Created by Szijgyártó Ákos</div>
     </footer>
+
+    <script>
+        const palackLink = document.querySelector('.nav-strip a[href="pages/palackgyujtes.html"]');
+        const palackText = palackLink?.querySelector('span:not(.nav-icon)');
+
+        function updateNavLabels() {
+            const w = window.innerWidth;
+            if (palackText) {
+                palackText.textContent = w < 480 ? 'Palackok' : 'Palackgyűjtés';
+            }
+        }
+
+        updateNavLabels();
+        window.addEventListener('resize', updateNavLabels);
+    </script>
 
 </body>
 </html>

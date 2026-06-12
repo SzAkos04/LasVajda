@@ -337,14 +337,16 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .info-section {
-        grid-template-columns: 1fr;
-        padding: 60px 20px;
-    }
+  .nav-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-    footer {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
+  .nav-strip a {
+    border: none;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    justify-content: center;
+    text-align: center;
+    padding: 20px 10px;
+  }
 }
