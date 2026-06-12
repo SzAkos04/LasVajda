@@ -80,6 +80,7 @@
 }
 
 @keyframes pulse-dot {
+
     0%,
     100% {
         opacity: 1;
@@ -292,37 +293,59 @@
 }
 
 @media (max-width: 600px) {
+    .pg-leaderboard {
+        padding: 8px;
+    }
+
     .pg-row {
-        grid-template-columns: 36px 1fr auto;
-        gap: 10px;
-        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 12px;
+        border: 1px solid rgba(212, 175, 55, 0.05);
+        background: rgba(20, 20, 20, 0.4);
+        padding: 16px;
+        grid-template-columns: 32px 1fr auto;
+        gap: 12px;
+    }
+
+    .pg-row:last-child {
+        margin-bottom: 0;
     }
 
     .pg-row--detailed {
-        grid-template-columns: 36px 65px 1fr 65px;
-        gap: 12px;
-        padding: 14px 16px;
+        grid-template-columns: 32px 1fr auto;
+        grid-template-areas:
+            "rank name total"
+            "bars bars bars";
     }
 
-    .pg-bars {
-        display: none;
+    .pg-rank,
+    .pg-rank-medal {
+        grid-area: rank;
+        font-size: 16px;
     }
 
     .pg-name {
-        font-size: 14px;
-    }
-
-    .pg-bar-chip {
-        font-size: 11px;
-        padding: 4px 10px;
+        grid-area: name;
+        font-size: 15px;
+        font-weight: 600;
     }
 
     .pg-total {
-        font-size: 14px;
+        grid-area: total;
+        font-size: 16px;
     }
 
-    .pg-chart-wrap {
-        padding: 16px 8px;
-        height: clamp(260px, 55vw, 380px);
+    .pg-bars {
+        grid-area: bars;
+        display: flex;
+        padding-top: 12px;
+        margin-top: 4px;
+        border-top: 1px dashed rgba(212, 175, 55, 0.2);
+        width: 100%;
+    }
+
+    .pg-bar-chip {
+        font-size: 10px;
+        padding: 4px 10px;
     }
 }

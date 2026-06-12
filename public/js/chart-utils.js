@@ -29,7 +29,12 @@ const BASE_OPTIONS = {
     scales: {
         x: {
             grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
-            ticks: { maxRotation: 30, color: 'rgba(245, 240, 232, 0.6)' },
+            ticks: {
+                autoSkip: false,
+                minRotation: 0,
+                maxRotation: 45,
+                color: 'rgba(245, 240, 232, 0.6)'
+            },
         },
         y: {
             beginAtZero: true,

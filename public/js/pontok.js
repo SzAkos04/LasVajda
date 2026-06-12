@@ -42,7 +42,9 @@ function sortEntries(data) {
     });
 }
 
-function makeChipsHtml(val) {
+export function makeChipsHtml(val) {
+    if (!val.feladatok) return '<div class="pg-bars"></div>';
+    
     const chips = Object.entries(FELADATOK_CONFIG).map(([key, config], i) => {
         const pts = val.feladatok?.[key] ?? 0;
         const { bg, border } = PALETTE[i % PALETTE.length];
@@ -93,11 +95,11 @@ onValue(osztalyokRef, (snapshot) => {
     buildChart(chartRef, ctx, labels, datasets, STACKED_AXES);
 
     const maxTotal = getClassTotal(sorted[0]?.[1] ?? {}) || 1;
+    
     renderLeaderboard(leaderboard, sorted, maxTotal, getClassTotal, makeChipsHtml);
     updateTimestamp(lastUpdated);
 });
 
-/* Horizontal scroll on the chips bar via mouse wheel */
 leaderboard.addEventListener('wheel', (evt) => {
     const barsContainer = evt.target.closest('.pg-bars--scroll');
     if (barsContainer) {
