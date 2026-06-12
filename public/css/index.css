@@ -1,3 +1,7 @@
+:root {
+    --marquee-duration: 25s; /* Asztali gép */
+}
+
 *,
 *::before,
 *::after {
@@ -258,24 +262,47 @@ body::before {
     font-size: 16px;
 }
 
+@keyframes marquee {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
 .marquee-wrap {
     overflow: hidden;
     border-top: 1px solid rgba(212, 175, 55, 0.12);
     border-bottom: 1px solid rgba(212, 175, 55, 0.12);
     padding: 18px 0;
     background: rgba(139, 0, 0, 0.08);
+    
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .marquee-track {
     display: flex;
+    width: 200%;
+    will-change: transform;
+    animation: marquee var(--marquee-duration) linear infinite;
+}
+
+/* Opcionális: Álljon meg az animáció, ha ráviszik az egeret (jó UX) */
+.marquee-wrap:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-group {
+    display: flex;
     align-items: center;
-    gap: 48px;
-    width: max-content;
-    animation: marquee 25s linear infinite;
+    flex: 0 0 50%;
+    justify-content: space-around;
 }
 
 .marquee-item {
-    padding: 0 48px;
+    padding: 0 24px;
     font-size: 10px;
     letter-spacing: 0.35em;
     color: var(--gold);
@@ -405,6 +432,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+    :root {
+        --marquee-duration: 12s;
+    }
+
     .nav-strip {
         display: grid;
         grid-template-columns: 1fr 1fr;
