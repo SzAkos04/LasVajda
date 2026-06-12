@@ -349,4 +349,19 @@ footer {
     text-align: center;
     padding: 20px 10px;
   }
+
+    .info-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 60px 20px;
+        background: transparent;
+    }
+
+    .info-card {
+        padding: 30px 24px;
+    }
+
+    .info-value {
+        font-size: 22px;
+    }
 }
