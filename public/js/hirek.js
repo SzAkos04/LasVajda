@@ -1,22 +1,22 @@
 import { db } from "./firebase-init.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 
-const newsRef  = ref(db, "hirek");
+const newsRef = ref(db, "hirek");
 const container = document.getElementById('news-container');
 
 function parseMarkdown(text) {
     return text
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g,     '<em>$1</em>')
-        .replace(/\\n|\n/g,        '<br>');
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/\\n|\n/g, '<br>');
 }
 
 function createNewsCard(val) {
     const imageHtml = val.kepek
         ? `<div class="news-image-grid">
                ${Object.values(val.kepek).slice(0, 4)
-                   .map(src => `<img src="${src}" alt="${val.cim}" class="news-image" loading="lazy">`)
-                   .join('')}
+            .map(src => `<img src="${src}" alt="${val.cim}" class="news-image" loading="lazy">`)
+            .join('')}
            </div>`
         : '';
 

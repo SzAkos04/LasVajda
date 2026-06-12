@@ -80,8 +80,16 @@
 }
 
 @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.5; transform: scale(0.85); }
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(0.85);
+    }
 }
 
 .pg-live-dot {
@@ -139,7 +147,9 @@
     background: rgba(212, 175, 55, 0.03);
 }
 
-.pg-leaderboard { padding: 12px 0; }
+.pg-leaderboard {
+    padding: 12px 0;
+}
 
 .pg-loading {
     padding: 40px;
@@ -169,16 +179,31 @@
     padding: 16px 28px;
 }
 
-.pg-row:last-child { border-bottom: none; }
-.pg-row:hover      { background: rgba(212, 175, 55, 0.04); }
+.pg-row:last-child {
+    border-bottom: none;
+}
 
-.pg-row[data-rank="1"] { background: rgba(212, 175, 55, 0.07); }
-.pg-row[data-rank="2"] { background: rgba(192, 192, 192, 0.05); }
-.pg-row[data-rank="3"] { background: rgba(205, 127, 50, 0.05); }
+.pg-row:hover {
+    background: rgba(212, 175, 55, 0.04);
+}
+
+.pg-row[data-rank="1"] {
+    background: rgba(212, 175, 55, 0.07);
+}
+
+.pg-row[data-rank="2"] {
+    background: rgba(192, 192, 192, 0.05);
+}
+
+.pg-row[data-rank="3"] {
+    background: rgba(205, 127, 50, 0.05);
+}
 
 .pg-row-bar {
     position: absolute;
-    left: 0; top: 0; bottom: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
     background: linear-gradient(90deg, rgba(212, 175, 55, 0.06), transparent);
     pointer-events: none;
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -235,12 +260,19 @@
     scrollbar-color: rgba(212, 175, 55, 0.2) transparent;
 }
 
-.pg-bars--scroll::-webkit-scrollbar        { height: 4px; }
-.pg-bars--scroll::-webkit-scrollbar-track  { background: transparent; }
-.pg-bars--scroll::-webkit-scrollbar-thumb  {
+.pg-bars--scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.pg-bars--scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pg-bars--scroll::-webkit-scrollbar-thumb {
     background: rgba(212, 175, 55, 0.15);
     border-radius: 10px;
 }
+
 .pg-bars--scroll:hover::-webkit-scrollbar-thumb {
     background: rgba(212, 175, 55, 0.4);
 }
@@ -272,11 +304,22 @@
         padding: 14px 16px;
     }
 
-    .pg-bars { display: none; }
+    .pg-bars {
+        display: none;
+    }
 
-    .pg-name      { font-size: 14px; }
-    .pg-bar-chip  { font-size: 11px; padding: 4px 10px; }
-    .pg-total     { font-size: 14px; }
+    .pg-name {
+        font-size: 14px;
+    }
+
+    .pg-bar-chip {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .pg-total {
+        font-size: 14px;
+    }
 
     .pg-chart-wrap {
         padding: 16px 8px;

@@ -17,9 +17,9 @@ export function renderLeaderboard(container, sorted, maxTotal, getTotal, getChip
     }
 
     container.innerHTML = sorted.map(([, val], i) => {
-        const total    = getTotal(val);
-        const pct      = maxTotal > 0 ? Math.round((total / maxTotal) * 100) : 0;
-        const rank     = i + 1;
+        const total = getTotal(val);
+        const pct = maxTotal > 0 ? Math.round((total / maxTotal) * 100) : 0;
+        const rank = i + 1;
         const rankHtml = rank <= 3
             ? `<span class="pg-rank-medal">${MEDALS[i]}</span>`
             : `<span class="pg-rank">${rank}</span>`;

@@ -1,12 +1,12 @@
 :root {
-    --gold:         #d4af37;
-    --gold-light:   #f5d87a;
-    --gold-dark:    #8b6914;
-    --crimson:      #8b0000;
+    --gold: #d4af37;
+    --gold-light: #f5d87a;
+    --gold-dark: #8b6914;
+    --crimson: #8b0000;
     --crimson-bright: #c0392b;
-    --black:        #0a0a0a;
-    --black-mid:    #111111;
-    --black-card:   #141414;
-    --white:        #f5f0e8;
-    --white-dim:    rgba(245, 240, 232, 0.6);
+    --black: #0a0a0a;
+    --black-mid: #111111;
+    --black-card: #141414;
+    --white: #f5f0e8;
+    --white-dim: rgba(245, 240, 232, 0.6);
 }

@@ -1,7 +1,7 @@
 export function setChartDefaults() {
-    Chart.defaults.color       = 'rgba(245, 240, 232, 0.55)';
+    Chart.defaults.color = 'rgba(245, 240, 232, 0.55)';
     Chart.defaults.font.family = "'JetBrains Mono', monospace";
-    Chart.defaults.font.size   = 11;
+    Chart.defaults.font.size = 11;
 }
 
 const BASE_OPTIONS = {
@@ -19,21 +19,21 @@ const BASE_OPTIONS = {
         },
         tooltip: {
             backgroundColor: 'rgba(10, 10, 10, 0.92)',
-            borderColor:     'rgba(212, 175, 55, 0.3)',
+            borderColor: 'rgba(212, 175, 55, 0.3)',
             borderWidth: 1,
-            titleColor:  '#f5d87a',
-            bodyColor:   'rgba(245, 240, 232, 0.8)',
+            titleColor: '#f5d87a',
+            bodyColor: 'rgba(245, 240, 232, 0.8)',
             padding: 12,
         },
     },
     scales: {
         x: {
-            grid:  { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
             ticks: { maxRotation: 30, color: 'rgba(245, 240, 232, 0.6)' },
         },
         y: {
             beginAtZero: true,
-            grid:  { color: 'rgba(255,255,255,0.06)', drawBorder: false },
+            grid: { color: 'rgba(255,255,255,0.06)', drawBorder: false },
             ticks: { color: 'rgba(245, 240, 232, 0.5)', precision: 0 },
         },
     },
@@ -51,7 +51,7 @@ const BASE_OPTIONS = {
  */
 export function buildChart(chartRef, ctx, labels, datasets, extraOptions = {}) {
     if (chartRef.current) {
-        chartRef.current.data.labels   = labels;
+        chartRef.current.data.labels = labels;
         chartRef.current.data.datasets = datasets;
         chartRef.current.update('active');
         return chartRef.current;
