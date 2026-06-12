@@ -1,10 +1,14 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background: var(--black);
@@ -25,23 +29,47 @@ body::before {
 }
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes bgPulse {
-    from { opacity: 1; }
-    to   { opacity: 0.85; }
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.85;
+    }
 }
 
 @keyframes shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50%       { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .hero {
@@ -158,8 +186,13 @@ body::before {
     transition: transform 0.4s ease;
 }
 
-.hero-cta:hover::before { transform: scaleX(1); }
-.hero-cta:hover         { color: var(--black); }
+.hero-cta:hover::before {
+    transform: scaleX(1);
+}
+
+.hero-cta:hover {
+    color: var(--black);
+}
 
 .hero-cta span {
     position: relative;
@@ -191,23 +224,39 @@ body::before {
     flex: 1 0 21%;
 }
 
-.nav-strip a:first-child { border-left: 1px solid rgba(212, 175, 55, 0.1); }
+.nav-strip a:first-child {
+    border-left: 1px solid rgba(212, 175, 55, 0.1);
+}
 
 .nav-strip a::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 2px;
     background: var(--gold);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
 
-.nav-strip a:hover             { color: var(--gold); background: rgba(212, 175, 55, 0.04); }
-.nav-strip a:hover::after      { transform: scaleX(1); }
-.nav-strip a.disabled          { opacity: 0.3; pointer-events: none; }
+.nav-strip a:hover {
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.04);
+}
 
-.nav-icon { font-size: 16px; }
+.nav-strip a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-strip a.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.nav-icon {
+    font-size: 16px;
+}
 
 .marquee-wrap {
     overflow: hidden;
@@ -263,16 +312,26 @@ body::before {
 .info-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
     transform: scaleX(0);
     transition: transform 0.5s ease;
 }
 
-.info-card:hover               { background: #181010; }
-.info-card:hover::before       { transform: scaleX(1); }
-.info-card:hover .info-number  { color: rgba(212, 175, 55, 0.25); }
+.info-card:hover {
+    background: #181010;
+}
+
+.info-card:hover::before {
+    transform: scaleX(1);
+}
+
+.info-card:hover .info-number {
+    color: rgba(212, 175, 55, 0.25);
+}
 
 .info-number {
     font-size: 72px;
@@ -331,24 +390,33 @@ footer {
         flex: 0 0 50%;
         padding: 16px 24px;
     }
-    .nav-strip a:nth-child(even)          { border-right: none; }
-    .nav-strip a:nth-child(n+3)           { border-top: 1px solid rgba(212, 175, 55, 0.1); }
-    .nav-strip a:first-child              { border-left: none; }
+
+    .nav-strip a:nth-child(even) {
+        border-right: none;
+    }
+
+    .nav-strip a:nth-child(n+3) {
+        border-top: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .nav-strip a:first-child {
+        border-left: none;
+    }
 }
 
 @media (max-width: 768px) {
-  .nav-strip {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+    .nav-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 
-  .nav-strip a {
-    border: none;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    justify-content: center;
-    text-align: center;
-    padding: 20px 10px;
-  }
+    .nav-strip a {
+        border: none;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        justify-content: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
 
     .info-section {
         grid-template-columns: 1fr;
