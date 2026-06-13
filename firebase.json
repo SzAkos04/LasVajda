@@ -14,13 +14,6 @@
         "source": "/",
         "destination": "/index.html"
       }
-    ],
-    "redirects": [
-      {
-        "source": "/pages/pontok.html",
-        "destination": "/",
-        "type": 301
-      }
     ]
   }
 }

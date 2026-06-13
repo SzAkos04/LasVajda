@@ -264,10 +264,8 @@
         grid-template-columns: 36px 1fr auto;
         gap: 10px;
         padding: 12px 16px;
-    }
-
-    .pg-bars {
-        display: none;
+        align-items: center;
+        min-height: unset;
     }
 
     .pg-chart-wrap {

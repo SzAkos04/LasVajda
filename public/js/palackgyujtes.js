@@ -28,6 +28,15 @@ function sortEntries(data) {
     });
 }
 
+function makeChipsHtml(val) {
+    const palackok = val.palackok ?? 0;
+    return `<div class="pg-bars">
+        <span class="pg-bar-chip" style="background:rgba(212,175,55,0.12);border:1px solid rgba(245,216,122,1);color:rgba(245,240,232,0.8);">
+            🍾 ${palackok} db
+        </span>
+    </div>`;
+}
+
 onValue(osztalyokRef, (snapshot) => {
     const data = snapshot.val();
     if (!data) {
@@ -50,6 +59,6 @@ onValue(osztalyokRef, (snapshot) => {
         borderSkipped: false,
     }]);
 
-    renderLeaderboard(leaderboard, sorted, maxTotal, getTotal);
+    renderLeaderboard(leaderboard, sorted, maxTotal, getTotal, makeChipsHtml);
     updateTimestamp(lastUpdated);
 });

@@ -298,12 +298,14 @@
     }
 
     .pg-row {
+        width: 100%;
         margin-bottom: 8px;
         border-radius: 12px;
         border: 1px solid rgba(212, 175, 55, 0.05);
         background: rgba(20, 20, 20, 0.4);
         padding: 16px;
         grid-template-columns: 32px 1fr auto;
+        grid-template-areas: "rank name total";
         gap: 12px;
     }
 
@@ -328,6 +330,10 @@
         grid-area: name;
         font-size: 15px;
         font-weight: 600;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .pg-total {
@@ -347,5 +353,10 @@
     .pg-bar-chip {
         font-size: 10px;
         padding: 4px 10px;
+    }
+
+    .pg-table-card {
+        overflow: hidden;
+        width: 100%;
     }
 }

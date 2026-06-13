@@ -1,6 +1,7 @@
 {
   "rules": {
-    "osztalyok": { ".read": true, ".write": false },
-    "hirek": { ".read": true, ".write": false }
+    "config": { ".read": true, ".write": false },
+    "hirek": { ".read": true, ".write": false },
+    "osztalyok": { ".read": true, ".write": false }
   }
 }
